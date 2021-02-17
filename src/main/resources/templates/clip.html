@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>clip board</title>
+    <meta charset="UTF-8">
+
+    <link th:href="@{/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/common.css}" rel="stylesheet"/>
+
+    <script>
+        function oCopy() {
+            var txt = document.getElementById("text").value;
+            let tmp_el = document.createElement("input");
+            tmp_el.setAttribute("readonly", "readonly");
+            tmp_el.setAttribute("value", txt);
+            document.body.appendChild(tmp_el);
+            tmp_el.select();
+            tmp_el.setSelectionRange(0, 9999);
+            if (document.execCommand("copy")) {
+                document.execCommand("copy");
+                console.log("复制成功");
+            }
+            document.body.removeChild(tmp_el);
+
+            alert("复制成功");
+
+        }
+
+    </script>
+    <style>
+        .footer {
+
+            weight: 100%;
+            background-color: #ddd;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<!--<body background="bg4.jpg" th:background="${bg}">-->
+
+<!--<textarea id="text" th:text="${text}"></textarea>-->
+<!--<button onclick="oCopy()">复制</button>-->
+<!--<form action="/clip" method="post">-->
+<!--    <input type="text" name="text"/>-->
+<!--    <input type="submit" value="提交"/>-->
+<!--</form>-->
+
+<div class="footer">
+    <form action="/clip" method="post">
+    <div class="input-group">
+        <input type="text" id="text" name="text" class="form-control" th:value="${text}" placeholder="Paste to cloud" aria-describedby="basic-addon2"/>
+        <span class="input-group-addon" id="basic-addon2" onclick="oCopy()">Copy</span>
+        <input hidden="hidden" type="submit" value="提交"/>
+    </div>
+    </form>
+</div>
+<!--<form method="post" action="/api/upload" enctype="multipart/form-data">-->
+<!--    <input type="file" name="file"><br>-->
+<!--    <input type="text" name="dir"><br>-->
+<!--    <input type="submit" value="提交">-->
+<!--</form>-->
+</body>
+<script th:src="@{/bootstrap.min.js}"></script>
+</html>

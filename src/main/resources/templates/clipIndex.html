@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+                //跳转移动端页面
+                window.location.href="/clip_phone"
+                rel="external nofollow"
+                rel="external nofollow" ;
+            } else {
+                //跳转pc端页面
+                window.location.href="/clip"
+                rel="external nofollow"
+                rel="external nofollow" ;
+            }
+        }
+        browserRedirect();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
