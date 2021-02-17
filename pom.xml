@@ -12,6 +12,7 @@
     <artifactId>clip_board</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>clip_board</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
